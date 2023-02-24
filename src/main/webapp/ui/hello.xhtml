@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+    <h:form>
+        <H2>Job Description Generator</H2>
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="jobTitel" value="Job Titel" />
+            <p:inputText id="jobTitel" value="#{myBean.jobTitel}" />
+
+            <h:outputLabel for="jobSkill" value="Job Skill" />
+            <p:inputText id="jobSkill" value="#{myBean.jobSkill}" />
+
+            <h:outputLabel for="jobCompany" value="Job Company" />
+            <p:inputText id="jobCompany" value="#{myBean.jobCompany}" />
+
+            <h:outputLabel for="jobLocation" value="Job Location" />
+            <p:inputText id="jobLocation" value="#{myBean.jobLocation}" />
+
+        </h:panelGrid>
+        <p:commandButton value="Get Results" update="skills,role,about,jobTitel,jobSkill,jobCompany,jobLocation"
+            action="#{myBean.generate}" />
+
+        <h:panelGrid columns="1" cellpadding="5">
+            <h:outputLabel id="skills" value="Skills -> #{myBean.jobResponse.skills}" />
+            <h:outputLabel id="role" value="Roll -> #{myBean.jobResponse.roles}" />
+            <h:outputLabel id="about" value="About Company -> #{myBean.jobResponse.about_company}" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+
+</html>
